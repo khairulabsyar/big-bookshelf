@@ -1,40 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+I'm cloning from one of [@alserembani94](https://github.com/alserembani94).([Link](https://github.com/alserembani94/decube-fe-iv-template)) Although this is for his FE interview template but I like the design and would love to improve my programming knowledge based on his repo
 
-## Getting Started
+# Welcome to my FE Interview Template
 
-First, run the development server:
+## Setup
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Make sure that you have IDE of your choice installed in your machine. In case you are not, you can use alternative such as CodeSandbox, or Stackblitz to start coding.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Fork this project, and you can start adding your code. By the end of the session, you are required to push your changes and share the repository to the assessor through email.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+3. Make sure that your repository's visibility is set to public. You can go to your forked repository settings, and ensure that the visibility is set to public.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Instruction
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. You are required to create a simple web app that fit these requirements:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- (Required) List popular movies. You have freedom to decide what UI is best for the web app, but in case that you need some inspiration, you can refer to the [Assignment Details](#assignment-details).
+- (Required) Display movie details. When user go to the popular movie listing, and user click one of them, user should be expected to navigate to the movie details. The navigation strategy is up to you, whether you prefer modal-view, or page-view, as long as the user can see movie details.
 
-## Learn More
+2. All the API documentation are provided for you to be used throughout the interview. Please refer to the [Assignment Details](#assignment-details) below.
 
-To learn more about Next.js, take a look at the following resources:
+3. You will have **_1-hour time frame_** to develop the product. This template is given to you to ease your setup, however you are **_required to use Typescript and Tailwind CSS_** throughout the development.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. You have the freedom to use any tools - that includes _googling_, using any LLM tools such as _ChatGPT_, however you will be assessed continuously during the usage of such tools.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+5. Other than provided dependencies, you may add other dependencies which you see fit to make this development successful.
 
-## Deploy on Vercel
+6. You can add other enhancements as you see fit as a bonus.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+7. After 1-hour session ended, you need to push your changes to Github.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+> If it's flipping hamburgers at McDonald's, be the best hamburger flipper in the world. Whatever it is you do you have to master your craft. -Snoop Dog-
+
+## Assignment Details
+
+For design inspiration, you can see [the example here](<https://www.figma.com/file/Y8ohcJuzy1O0rNVRcGrim3/HTML-%26-CSS-Basics-(Community)?type=design&node-id=102-442&mode=design&t=lEAUHJUGaUvl0BnH-0>)
+
+For interview purpose, you need to incorporate two endpoints, which are provided in the documentation respectively:
+
+- **_Popular Movie Listing_**: https://developer.themoviedb.org/reference/movie-popular-list
+- **_Movie Details_**: https://developer.themoviedb.org/reference/movie-details
+
+The bearer token has been provided to you inside `.env` file.
+
+The API should return you the path to the image relative to the TMDB Image API. The domain is provided for you in the `.env` file as well.
+
+For any more information, you can ask the assessor anytime during the interview.
