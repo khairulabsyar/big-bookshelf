@@ -13,14 +13,21 @@ export default function Navbar() {
       <div className={cn("h-5")} />
       <div
         className={cn(
-          "bg-backgroundBlack text-white rounded-[20px] p-5 h-[75px] flex items-center justify-between",
+          "bg-backgroundBlack flex h-[75px] w-full items-center justify-between rounded-[20px] p-5 text-white",
         )}
       >
-        <div className={cn("flex items-center space-x-5")}>
-          <Image src="/LogoIcon.png" alt="Logo Icon" width={30} height={30} />
-          <Image src="/LogoName.png" alt="Logo Name" width={125} height={125} />
-        </div>
-        <div className={cn("space-x-5 *:text-h5")}>
+        <Link href="/">
+          <div className={cn("flex items-center space-x-5")}>
+            <Image src="/LogoIcon.png" alt="Logo Icon" width={30} height={30} />
+            <Image
+              src="/LogoName.png"
+              alt="Logo Name"
+              width={125}
+              height={125}
+            />
+          </div>
+        </Link>
+        <div className={cn("*:text-h5 space-x-5")}>
           <Link href="/test">Books</Link>
           <Link href="/test">Authors</Link>
           <Link href="/test">What to Read?</Link>

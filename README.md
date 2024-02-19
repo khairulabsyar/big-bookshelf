@@ -1,5 +1,3 @@
-I'm cloning from one of [@alserembani94](https://github.com/alserembani94).([Link](https://github.com/alserembani94/decube-fe-iv-template)) Although this is for his FE interview template but I like the design and would love to improve my programming knowledge based on his repo
-
 # Welcome to my FE Interview Template
 
 ## Setup
@@ -45,3 +43,6 @@ The bearer token has been provided to you inside `.env` file.
 The API should return you the path to the image relative to the TMDB Image API. The domain is provided for you in the `.env` file as well.
 
 For any more information, you can ask the assessor anytime during the interview.
+
+P/S
+Template from one of [@alserembani94](https://github.com/alserembani94)'s repositories ([Link](https://github.com/alserembani94/decube-fe-iv-template)). Although this is for his FE interview template but I like the design and would love to improve my programming knowledge based on his repo
