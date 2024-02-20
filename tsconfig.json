@@ -29,7 +29,7 @@
 
     // Some stricter flags
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    // "noUnusedParameters": true,
     "noPropertyAccessFromIndexSignature": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
