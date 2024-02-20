@@ -9,11 +9,10 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 export default function Navbar() {
   return (
-    <>
-      <div className={cn("h-5")} />
+    <div className={cn("mt-5 w-full px-5")}>
       <div
         className={cn(
-          "bg-backgroundBlack flex h-[75px] w-full items-center justify-between rounded-[20px] p-5 text-white",
+          "flex h-[75px] items-center justify-between rounded-[20px] bg-backgroundBlack p-5  text-white ",
         )}
       >
         <Link href="/">
@@ -27,7 +26,7 @@ export default function Navbar() {
             />
           </div>
         </Link>
-        <div className={cn("*:text-h5 space-x-5")}>
+        <div className={cn("space-x-5 *:text-h5")}>
           <Link href="/test">Books</Link>
           <Link href="/test">Authors</Link>
           <Link href="/test">What to Read?</Link>
@@ -43,6 +42,6 @@ export default function Navbar() {
           </Button>
         </div>
       </div>
-    </>
+    </div>
   );
 }

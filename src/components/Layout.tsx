@@ -13,7 +13,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <QueryClientProvider client={queryClient}>
         <main
           className={cn(
-            "bg-mainBackground relative flex flex-col items-center px-5 text-black *:max-w-[1920px]",
+            "relative flex flex-col items-center bg-mainBackground text-black *:max-w-[1920px] ",
             grotesk.className,
           )}
         >
