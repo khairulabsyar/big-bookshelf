@@ -7,14 +7,12 @@ const request = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     Accept: "application/json",
-    "Access-Control-Allow-Origin": "*",
-    "Content-Type": "application/json",
   },
 });
 
 request.interceptors.request.use(
   async (config) => {
-    config.headers["Authorization"] = `Bearer ${BEARER_TOKEN}`;
+    config.headers["Authorization"] = `${BEARER_TOKEN}`;
     return config;
   },
   (error) => {
@@ -44,8 +42,8 @@ request.interceptors.response.use(
   },
 );
 
-export function getData<T>(response: T) {
-  return response;
+export function getData(response: any) {
+  return response?.data;
 }
 
 export default request;
