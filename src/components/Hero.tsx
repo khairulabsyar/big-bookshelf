@@ -6,15 +6,17 @@ import Link from "next/link";
 export function Hero() {
   return (
     <div className={cn("flex flex-col text-center")}>
-      <h1 className={cn("text-h1")}>READING MAKES THE WORLD HUGE</h1>
+      <h1 className={cn("text-h1")}>
+        <s>READING</s> MOVIES MAKE THE WORLD HUGE
+      </h1>
       <div className={cn("flex justify-between px-11")}>
         <div
           className={cn(
-            "bg-backgroundBlack flex h-[349px] w-[596px] flex-col justify-between rounded-[20px] p-5 text-left text-white",
+            "flex h-[349px] w-[596px] flex-col justify-between rounded-[20px] bg-backgroundBlack p-5 text-left text-white",
           )}
         >
           <div className={cn("w-3/5 space-y-5")}>
-            <h4 className={cn("text-h4")}>FIND SOMETHING TO READ</h4>
+            <h4 className={cn("text-h4")}>FIND SOMETHING TO WATCH</h4>
             <p className={cn("text-body1")}>
               Fancy something unusual and unpredictable? Funny or exciting? No
               problem. Check out the collections we have prepared for you.
@@ -22,7 +24,7 @@ export function Hero() {
           </div>
           <Button
             asChild
-            className="text-yellow h-[56px] w-1/3 rounded-2xl border"
+            className="h-[56px] w-1/3 rounded-2xl border text-yellow"
           >
             <Link href="/">BROWSE NOW</Link>
           </Button>

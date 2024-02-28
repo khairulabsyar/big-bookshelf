@@ -29,7 +29,7 @@ const config = {
     },
     fontSize: {
       h1: [
-        "96px",
+        "80px",
         {
           lineHeight: "120px",
           fontWeight: "600",
