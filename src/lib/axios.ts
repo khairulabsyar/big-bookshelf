@@ -12,7 +12,7 @@ const request = axios.create({
 
 request.interceptors.request.use(
   async (config) => {
-    config.headers["Authorization"] = `${BEARER_TOKEN}`;
+    config.headers["Authorization"] = `Bearer ${BEARER_TOKEN}`;
     return config;
   },
   (error) => {
@@ -43,7 +43,7 @@ request.interceptors.response.use(
 );
 
 export function getData(response: any) {
-  return response?.data;
+  return response.data;
 }
 
 export default request;

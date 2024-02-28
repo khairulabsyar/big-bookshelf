@@ -1,14 +1,14 @@
-import { GetUserDetails, MovieList } from "@/pages/api/api";
+import { GetWatchlistMovies, MovieList } from "@/pages/api/api";
 import { useQuery } from "@tanstack/react-query";
 
-export function GetUser() {
+export function UseMWatchlist() {
   return useQuery({
-    queryKey: ["user"],
-    queryFn: async () => GetUserDetails,
+    queryKey: ["watchlist"],
+    queryFn: GetWatchlistMovies,
   });
 }
 
-export function GetMovies() {
+export function UseMovies() {
   return useQuery({
     queryKey: ["movies"],
     queryFn: MovieList,

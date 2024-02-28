@@ -27,11 +27,9 @@ export default function Navbar() {
           </div>
         </Link>
         <div className={cn("space-x-5 *:text-h5")}>
-          <Link href="/test">Books</Link>
+          <Link href="/movie">Movies</Link>
           <Link href="/test">Authors</Link>
-          <Link href="/test">What to Read?</Link>
-          <Link href="/test">Gift Ideas</Link>
-          <Link href="/test">About us</Link>
+          <Link href="/about">About me</Link>
         </div>
         <div className={cn("flex items-center space-x-5")}>
           <IoSearchOutline size={24} />
