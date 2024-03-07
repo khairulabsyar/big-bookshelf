@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { type AxiosResponse } from "axios";
 
 const API_BASE_URL = process.env["NEXT_PUBLIC_API_ENDPOINT"];
 const BEARER_TOKEN = process.env["NEXT_PUBLIC_BEARER_TOKEN"];
@@ -42,7 +42,7 @@ request.interceptors.response.use(
   },
 );
 
-export function getData(response: any) {
+export function getData<T>(response: AxiosResponse<T>): T {
   return response.data;
 }
 

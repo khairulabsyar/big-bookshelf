@@ -1,7 +1,8 @@
 import { GetWatchlistMovies, MovieList } from "@/pages/api/api";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, type UseQueryResult } from "@tanstack/react-query";
+import type { MoviesResponse } from "./definitions";
 
-export function UseMWatchlist() {
+export function UseMWatchlist(): UseQueryResult<MoviesResponse, Error> {
   return useQuery({
     queryKey: ["watchlist"],
     queryFn: GetWatchlistMovies,
