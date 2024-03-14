@@ -1,27 +1,41 @@
-import { UseMWatchlist, UseMoviesImage } from "@/lib/queries";
+import type { Movie } from "@/lib/definitions";
+import { UseTrendingMovies } from "@/lib/queries";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import React from "react";
 
-export default function Body() {
-  const { data: watchlist } = UseMWatchlist();
-  const poster = watchlist?.results.map((result) => result.poster_path) || null;
-  console.log(poster);
-  const { data: images } = UseMoviesImage(poster || []);
+const PUBLIC_API_IMAGE_PATH = process.env["NEXT_PUBLIC_API_IMAGE_PATH"];
 
-  // console.log(watchlist);
+export default function Body() {
+  // const { data: watchlist } = UseWatchlist();
+  const { data: trendingMovies } = UseTrendingMovies("week");
+  // const poster = watchlist?.results.map((result) => result.poster_path) || null;
+
+  const topTen: Movie[] = Array.isArray(trendingMovies?.results)
+    ? trendingMovies.results.slice(0, 11)
+    : [];
+  console.log(topTen);
   return (
     <div className={cn("mt-10 min-h-screen bg-backgroundBlack px-11 pt-7")}>
-      <h4 className="text-h4 text-white">BESTSELLERS</h4>
+      <h4 className="text-h4 text-white">TRENDING</h4>
       <div className={cn("mt-5 grid grid-cols-3 justify-items-center gap-4")}>
-        <div className={cn("h-52 w-96 rounded-3xl bg-white")}></div>
-        <div className={cn("h-52 w-96 rounded-3xl bg-white")}></div>
-        <div className={cn("h-52 w-96 rounded-3xl bg-white")}></div>
-        <div className={cn("h-52 w-96 rounded-3xl bg-white")}></div>
-        <div className={cn("h-52 w-96 rounded-3xl bg-white")}></div>
-        <div className={cn("h-52 w-96 rounded-3xl bg-white")}></div>
-        <div className={cn("h-52 w-96 rounded-3xl bg-white")}></div>
-        <div className={cn("h-52 w-96 rounded-3xl bg-white")}></div>
-        <div className={cn("h-52 w-96 rounded-3xl bg-white")}></div>
+        {topTen?.map((movie, index) => (
+          <div
+            className={cn(
+              "flex-end relative flex h-52 w-96 rounded-3xl bg-white",
+            )}
+            key={index}
+          >
+            <Image
+              src={`${PUBLIC_API_IMAGE_PATH}${movie.poster_path}`}
+              alt={movie.title}
+              fill={true}
+              objectFit="contain"
+            />
+            <div>{movie.title}</div>
+          </div>
+        ))}
+        <div className={cn("h-52 w-96 rounded-3xl bg-white")}>See More!</div>
       </div>
     </div>
   );

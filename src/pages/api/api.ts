@@ -2,7 +2,6 @@ import axios, { getData } from "@/lib/axios";
 import type { MoviesResponse } from "@/lib/definitions";
 
 const PUBLIC_USER_ID = process.env["NEXT_PUBLIC_USER_ID"];
-const PUBLIC_API_IMAGE_PATH = process.env["NEXT_PUBLIC_API_IMAGE_PATH"];
 
 export const GetWatchlistMovies: () => Promise<MoviesResponse> = async () => {
   const response = await axios.get<MoviesResponse>(
@@ -11,13 +10,20 @@ export const GetWatchlistMovies: () => Promise<MoviesResponse> = async () => {
   return getData<MoviesResponse>(response);
 };
 
-export const MovieList = async () => {
+export const GetMovieList = async () => {
   const response = await axios.get(`/genre/movie/list`);
   return getData(response);
 };
 
-export const GetImage = async (url: string) => {
-  axios.defaults.baseURL = PUBLIC_API_IMAGE_PATH;
-  const response = await axios.get(url);
+export const GetTrendingMovies: (
+  time_window: string,
+) => Promise<MoviesResponse> = async (time_window: string) => {
+  const response = await axios.get(`/trending/movie/${time_window}`);
   return getData(response);
 };
+
+// export const GetImage = async (url: string) => {
+//   axios.defaults.baseURL = PUBLIC_API_IMAGE_PATH;
+//   const response = await axios.get(url);
+//   return getData(response);
+// };

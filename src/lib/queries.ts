@@ -1,12 +1,12 @@
-import { GetImage, GetWatchlistMovies, MovieList } from "@/pages/api/api";
 import {
-  useQueries,
-  useQuery,
-  type UseQueryResult,
-} from "@tanstack/react-query";
+  GetWatchlistMovies,
+  GetMovieList,
+  GetTrendingMovies,
+} from "@/pages/api/api";
+import { useQuery, type UseQueryResult } from "@tanstack/react-query";
 import type { MoviesResponse } from "./definitions";
 
-export function UseMWatchlist(): UseQueryResult<MoviesResponse, Error> {
+export function UseWatchlist(): UseQueryResult<MoviesResponse, Error> {
   return useQuery({
     queryKey: ["watchlist"],
     queryFn: GetWatchlistMovies,
@@ -16,18 +16,25 @@ export function UseMWatchlist(): UseQueryResult<MoviesResponse, Error> {
 export function UseMovies() {
   return useQuery({
     queryKey: ["movies"],
-    queryFn: MovieList,
+    queryFn: GetMovieList,
   });
 }
 
-export function UseMoviesImage(urls: string[]) {
-  return useQueries({
-    queries: (urls ?? [])?.map((url) => {
-      // since urls can be array of number or undefined or just undefined, we need to make sure it is capable to do the map function
-      return {
-        queryKey: ["todo", { url }],
-        queryFn: () => GetImage(url!), // ! is telling ts that the value is always defined
-      };
-    }),
+export function UseTrendingMovies(time_window: string) {
+  return useQuery({
+    queryKey: ["trending"],
+    queryFn: () => GetTrendingMovies(time_window),
   });
 }
+
+// export function UseMoviesImage(urls: string[]) {
+//   return useQueries({
+//     queries: (urls ?? [])?.map((url) => {
+//       // since urls can be array of number or undefined or just undefined, we need to make sure it is capable to do the map function
+//       return {
+//         queryKey: ["todo", { url }],
+//         queryFn: () => GetImage(url!), // ! is telling ts that the value is always defined
+//       };
+//     }),
+//   });
+// }
