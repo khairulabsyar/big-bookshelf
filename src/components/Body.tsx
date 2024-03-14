@@ -1,5 +1,5 @@
 import type { Movie } from "@/lib/definitions";
-import { UseTrendingMovies } from "@/lib/queries";
+import { UseTrendingMovies, UseWatchlist } from "@/lib/queries";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React from "react";
@@ -7,9 +7,9 @@ import React from "react";
 const PUBLIC_API_IMAGE_PATH = process.env["NEXT_PUBLIC_API_IMAGE_PATH"];
 
 export default function Body() {
-  // const { data: watchlist } = UseWatchlist();
+  const { data: watchlist } = UseWatchlist();
   const { data: trendingMovies } = UseTrendingMovies("week");
-  // const poster = watchlist?.results.map((result) => result.poster_path) || null;
+  const poster = watchlist?.results.map((result) => result.poster_path) || null;
 
   const topTen: Movie[] = Array.isArray(trendingMovies?.results)
     ? trendingMovies.results.slice(0, 11)
