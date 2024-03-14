@@ -10,7 +10,7 @@ export default function Body() {
   const { data: watchlist } = UseWatchlist();
   const { data: trendingMovies } = UseTrendingMovies("week");
   const poster = watchlist?.results.map((result) => result.poster_path) || null;
-
+  console.log(poster);
   const topTen: Movie[] = Array.isArray(trendingMovies?.results)
     ? trendingMovies.results.slice(0, 11)
     : [];
