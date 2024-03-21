@@ -2,6 +2,7 @@ import {
   GetWatchlistMovies,
   GetMovieList,
   GetTrendingMovies,
+  GetTrendingAll,
 } from "@/pages/api/api";
 import { useQuery, type UseQueryResult } from "@tanstack/react-query";
 import type { MoviesResponse } from "./definitions";
@@ -27,14 +28,9 @@ export function UseTrendingMovies(time_window: string) {
   });
 }
 
-// export function UseMoviesImage(urls: string[]) {
-//   return useQueries({
-//     queries: (urls ?? [])?.map((url) => {
-//       // since urls can be array of number or undefined or just undefined, we need to make sure it is capable to do the map function
-//       return {
-//         queryKey: ["todo", { url }],
-//         queryFn: () => GetImage(url!), // ! is telling ts that the value is always defined
-//       };
-//     }),
-//   });
-// }
+export function UseTrendingAll(time_window: string) {
+  return useQuery({
+    queryKey: ["trendingAll"],
+    queryFn: () => GetTrendingAll(time_window),
+  });
+}

@@ -8,7 +8,7 @@ export default function SubBody() {
     <div className={cn("h-80 p-10")}>
       <div
         className={cn(
-          "relative flex h-full w-full justify-between overflow-auto rounded-[20px] bg-backgroundBlack p-5 ",
+          "relative flex h-full w-full justify-between overflow-hidden rounded-[20px] bg-backgroundBlack p-5 ",
         )}
       >
         <div className={cn("z-10 max-w-[500px] space-y-3 *:text-white")}>

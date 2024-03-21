@@ -2,14 +2,24 @@ import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import { UseTrendingAll } from "@/lib/queries";
+import type { Movie } from "@/lib/definitions";
+import { Skeleton } from "./ui/skeleton";
+
+const PUBLIC_API_IMAGE_PATH = process.env["NEXT_PUBLIC_API_IMAGE_PATH"];
 
 export function Hero() {
+  const { data: trendingAll, isLoading } = UseTrendingAll("day");
+
+  const trendingOne: Movie[] = Array.isArray(trendingAll?.results)
+    ? trendingAll.results.slice(0, 1)
+    : [];
+
+  console.log(trendingOne[0]);
   return (
     <div className={cn("flex flex-col text-center")}>
-      <h1 className={cn("text-h1")}>
-        <s>READING</s> MOVIES MAKE THE WORLD HUGE
-      </h1>
-      <div className={cn("flex justify-between px-11")}>
+      <h1 className={cn("text-h1")}>MOVIES MAKE THE WORLD HUGE</h1>
+      <div className={cn("flex justify-around")}>
         <div
           className={cn(
             "flex h-[349px] w-[596px] flex-col justify-between rounded-[20px] bg-backgroundBlack p-5 text-left text-white",
@@ -29,14 +39,18 @@ export function Hero() {
             <Link href="/">BROWSE NOW</Link>
           </Button>
         </div>
-        <Image
-          src="/heroRight.png"
-          width={596}
-          height={348}
-          alt="Picture of the Rizvan Bağırlı - Tipoqrafika"
-          quality={100}
-          style={{ borderRadius: "20px" }}
-        />
+        {isLoading ? (
+          <Skeleton className="h-[349px] w-[596px] rounded-[20px]" />
+        ) : (
+          <Image
+            src={`${PUBLIC_API_IMAGE_PATH}${trendingOne[0]?.backdrop_path}`}
+            alt="Picture of number one trending"
+            width={596}
+            height={349}
+            quality={100}
+            style={{ borderRadius: "20px" }}
+          />
+        )}
       </div>
     </div>
   );

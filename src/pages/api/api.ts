@@ -22,8 +22,9 @@ export const GetTrendingMovies: (
   return getData(response);
 };
 
-// export const GetImage = async (url: string) => {
-//   axios.defaults.baseURL = PUBLIC_API_IMAGE_PATH;
-//   const response = await axios.get(url);
-//   return getData(response);
-// };
+export const GetTrendingAll: (
+  time_window: string,
+) => Promise<MoviesResponse> = async (time_window: string) => {
+  const response = await axios.get(`/trending/all/${time_window}`);
+  return getData(response);
+};
