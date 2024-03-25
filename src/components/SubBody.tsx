@@ -5,7 +5,7 @@ import { MdOutlineQuestionMark } from "react-icons/md";
 
 export default function SubBody() {
   return (
-    <div className={cn("h-80 p-10")}>
+    <div className={cn("hidden h-80 p-10 lg:block")}>
       <div
         className={cn(
           "relative flex h-full w-full justify-between overflow-hidden rounded-[20px] bg-backgroundBlack p-5 ",

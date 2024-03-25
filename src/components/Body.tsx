@@ -16,7 +16,11 @@ export default function Body() {
     : [];
 
   return (
-    <div className={cn("mt-10 bg-backgroundBlack px-11 py-10 pt-7")}>
+    <div
+      className={cn(
+        "mt-10 hidden bg-backgroundBlack px-11 py-10 pt-7 lg:block",
+      )}
+    >
       <h4 className="text-h4 text-white">TRENDING</h4>
       {isLoading ? (
         <BodySkeleton />

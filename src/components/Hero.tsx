@@ -15,11 +15,10 @@ export function Hero() {
     ? trendingAll.results.slice(0, 1)
     : [];
 
-  console.log(trendingOne[0]);
   return (
     <div className={cn("flex flex-col text-center")}>
-      <h1 className={cn("text-h1")}>MOVIES MAKE THE WORLD HUGE</h1>
-      <div className={cn("flex justify-around")}>
+      <h1 className={cn("text-h2 lg:text-h1")}>MOVIES MAKE THE WORLD HUGE</h1>
+      <div className={cn("hidden justify-around lg:flex")}>
         <div
           className={cn(
             "flex h-[349px] w-[596px] flex-col justify-between rounded-[20px] bg-backgroundBlack p-5 text-left text-white",

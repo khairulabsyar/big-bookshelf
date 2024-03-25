@@ -11,7 +11,7 @@ type Props = {};
 
 export default function Footer({}: Props) {
   return (
-    <div className={cn("w-full bg-backgroundBlack text-white")}>
+    <div className={cn("hidden w-full bg-backgroundBlack text-white lg:block")}>
       <div
         className={cn("flex h-14 justify-between px-5 *:flex *:items-center ")}
       >
@@ -19,7 +19,7 @@ export default function Footer({}: Props) {
           <Image src="/LogoIcon.png" alt="Logo Icon" width={30} height={30} />
           <Image src="/LogoName.png" alt="Logo Name" width={125} height={125} />
         </div>
-        <div className={cn("space-x-3")}>
+        <div className={cn("space-x-3 *:text-yellow hover:*:text-white")}>
           <Link href={"https://www.facebook.com/khairulabsyar"}>
             <FaFacebookSquare size={24} />
           </Link>
